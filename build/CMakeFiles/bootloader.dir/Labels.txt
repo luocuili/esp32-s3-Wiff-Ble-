@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/CMakeFiles/bootloader
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/CMakeFiles/bootloader.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/CMakeFiles/bootloader-complete.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
