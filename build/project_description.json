@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "03_WiFi_AP",
-    "project_version":    "1",
+    "project_version":    "f190100-dirty",
     "project_path":       "E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP",
     "idf_path":           "D:/Espressif/frameworks/esp-idf-v5.3.1",
     "build_dir":          "E:/Learning materials/Extended routine-IDF(v5.3.x)/WiFi/03_WiFi_AP/build",

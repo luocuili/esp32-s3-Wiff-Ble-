@@ -334,6 +334,47 @@ static void gap_event_handler(esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param
                   param->update_conn_params.latency,
                   param->update_conn_params.timeout);
         break;
+    /* 配对相关事件 */
+    case ESP_GAP_BLE_SEC_REQ_EVT:
+        ESP_LOGI(BLE_TAG, "ESP_GAP_BLE_SEC_REQ_EVT");
+        /* 接受配对请求 */
+        esp_ble_gap_security_rsp(param->ble_security.ble_req.bd_addr, true);
+        break;
+    case ESP_GAP_BLE_AUTH_CMPL_EVT:
+        ESP_LOGI(BLE_TAG, "ESP_GAP_BLE_AUTH_CMPL_EVT");
+        if (!param->ble_security.auth_cmpl.success) {
+            ESP_LOGE(BLE_TAG, "Pairing failed: %d", param->ble_security.auth_cmpl.fail_reason);
+            spilcd_show_string(0, 150, 240, 16, 16, "Pairing Failed", RED);
+        } else {
+            ESP_LOGI(BLE_TAG, "Pairing success");
+            spilcd_show_string(0, 150, 240, 16, 16, "Paired Success", GREEN);
+            /* 显示配对设备地址 */
+            char addr_str[18];
+            sprintf(addr_str, "%02x:%02x:%02x:%02x:%02x:%02x",
+                    param->ble_security.auth_cmpl.bd_addr[0],
+                    param->ble_security.auth_cmpl.bd_addr[1],
+                    param->ble_security.auth_cmpl.bd_addr[2],
+                    param->ble_security.auth_cmpl.bd_addr[3],
+                    param->ble_security.auth_cmpl.bd_addr[4],
+                    param->ble_security.auth_cmpl.bd_addr[5]);
+            ESP_LOGI(BLE_TAG, "Paired with: %s", addr_str);
+        }
+        break;
+    case ESP_GAP_BLE_KEY_EVT:
+        ESP_LOGI(BLE_TAG, "ESP_GAP_BLE_KEY_EVT key type = %d", param->ble_security.ble_key.key_type);
+        break;
+    case ESP_GAP_BLE_PASSKEY_NOTIF_EVT:
+        ESP_LOGI(BLE_TAG, "ESP_GAP_BLE_PASSKEY_NOTIF_EVT passkey = %"PRIu32, param->ble_security.key_notif.passkey);
+        /* 显示配对密码 */
+        char passkey_str[7];
+        sprintf(passkey_str, "%06"PRIu32, param->ble_security.key_notif.passkey);
+        spilcd_show_string(0, 170, 240, 16, 16, passkey_str, BLUE);
+        break;
+    case ESP_GAP_BLE_PASSKEY_REQ_EVT:
+        ESP_LOGI(BLE_TAG, "ESP_GAP_BLE_PASSKEY_REQ_EVT");
+        /* 设置固定配对密码：000000 */
+        esp_ble_passkey_reply(param->ble_security.ble_req.bd_addr, true, 0);
+        break;
     default:
         break;
     }
@@ -524,6 +565,27 @@ static void ble_init(void)
         ESP_LOGE(BLE_TAG, "gap register error, error code = %x", ret);
         return;
     }
+
+    /* 设置配对参数 - 启用自动配对 */
+    /* 设置IO能力为无输入无输出（Just Works配对） */
+    esp_ble_io_cap_t iocap = ESP_IO_CAP_NONE;
+    esp_ble_gap_set_security_param(ESP_BLE_SM_IOCAP_MODE, &iocap, sizeof(uint8_t));
+    
+    /* 设置认证要求：绑定，MITM保护 */
+    uint8_t auth_req = ESP_LE_AUTH_BOND | ESP_LE_AUTH_REQ_MITM;
+    esp_ble_gap_set_security_param(ESP_BLE_SM_AUTHEN_REQ_MODE, &auth_req, sizeof(uint8_t));
+    
+    /* 设置密钥大小 */
+    uint8_t key_size = 16;
+    esp_ble_gap_set_security_param(ESP_BLE_SM_MAX_KEY_SIZE, &key_size, sizeof(uint8_t));
+    
+    /* 设置初始化密钥分发 */
+    uint8_t init_key = ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
+    esp_ble_gap_set_security_param(ESP_BLE_SM_SET_INIT_KEY, &init_key, sizeof(uint8_t));
+    
+    /* 设置响应密钥分发 */
+    uint8_t rsp_key = ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
+    esp_ble_gap_set_security_param(ESP_BLE_SM_SET_RSP_KEY, &rsp_key, sizeof(uint8_t));
 
     /* 设置MTU大小 */
     ret = esp_ble_gatt_set_local_mtu(500);
