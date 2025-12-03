@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/CMakeFiles/bootloader
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/CMakeFiles/bootloader.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/CMakeFiles/bootloader-complete.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

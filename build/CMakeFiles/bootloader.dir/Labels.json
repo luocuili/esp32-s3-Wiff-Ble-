@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "E:/Microsoft_LCL/Snap-POC-Dev/esp32-s3-Wiff-Ble/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}
